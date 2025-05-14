@@ -1,0 +1,26 @@
+/* Editor styles */
+.wp-block-wordpress-blocks-plugin-youtube {
+  margin-bottom: 1.5rem;
+}
+
+.wp-block-wordpress-blocks-plugin-youtube-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.wp-block-wordpress-blocks-plugin-youtube-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.wp-block-wordpress-blocks-plugin-youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

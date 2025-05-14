@@ -1,0 +1,36 @@
+/* Frontend styles */
+.wp-block-wordpress-blocks-plugin-google-maps {
+  margin-bottom: 1.5rem;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-container,
+.wp-block-wordpress-blocks-plugin-google-maps-iframe-container {
+  width: 100%;
+  min-height: 200px;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #f0f0f0;
+  color: #666;
+  font-style: italic;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-error {
+  padding: 1rem;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-error a {
+  color: #721c24;
+  text-decoration: underline;
+}

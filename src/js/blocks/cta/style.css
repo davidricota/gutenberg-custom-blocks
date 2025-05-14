@@ -1,0 +1,51 @@
+/* Frontend styles */
+.wp-block-wordpress-blocks-plugin-cta {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wp-block-wordpress-blocks-plugin-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wp-block-wordpress-blocks-plugin-cta-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.wp-block-wordpress-blocks-plugin-cta-description {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.wp-block-wordpress-blocks-plugin-cta-button-container {
+  margin-top: 1.5rem;
+}
+
+.wp-block-wordpress-blocks-plugin-cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.wp-block-wordpress-blocks-plugin-cta-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

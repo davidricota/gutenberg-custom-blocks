@@ -1,0 +1,68 @@
+/* Editor styles */
+.wp-block-wordpress-blocks-plugin-google-maps {
+  margin-bottom: 1.5rem;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-placeholder,
+.wp-block-wordpress-blocks-plugin-google-maps-iframe-preview {
+  background-color: #f0f0f0;
+  position: relative;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-overlay,
+.wp-block-wordpress-blocks-plugin-google-maps-iframe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-content .dashicons {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0073aa;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-zoom,
+.wp-block-wordpress-blocks-plugin-google-maps-iframe-src {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  word-break: break-all;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-instructions {
+  margin-left: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-tabs .components-tab-panel__tabs {
+  margin-bottom: 1rem;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-tabs .components-tab-panel__tabs-item {
+  font-weight: normal;
+}
+
+.wp-block-wordpress-blocks-plugin-google-maps-tabs .components-tab-panel__tabs-item.active-tab {
+  font-weight: bold;
+}

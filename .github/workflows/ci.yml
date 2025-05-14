@@ -1,0 +1,109 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  php-tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-versions: ['7.4', '8.0', '8.1']
+        
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extensions: mbstring, intl
+        tools: composer:v2
+        
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+      
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+          
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+      
+    - name: Run PHP CodeSniffer
+      run: composer run-script phpcs
+      
+    - name: Run PHPUnit tests
+      run: composer run-script test
+      
+  js-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Lint JavaScript
+      run: npm run lint:js
+      
+    - name: Lint CSS
+      run: npm run lint:css
+      
+    - name: Run JavaScript tests
+      run: npm run test:js
+      
+  build:
+    needs: [php-tests, js-tests]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        extensions: mbstring, intl
+        tools: composer:v2
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+        
+    - name: Install PHP dependencies
+      run: composer install --no-dev --prefer-dist --no-progress
+      
+    - name: Install JS dependencies
+      run: npm ci
+      
+    - name: Build assets
+      run: npm run build
+      
+    - name: Create plugin zip
+      run: npm run plugin-zip
+      
+    - name: Upload plugin zip
+      uses: actions/upload-artifact@v3
+      with:
+        name: wordpress-blocks-plugin
+        path: dist/wordpress-blocks-plugin.zip
